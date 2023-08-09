@@ -1,7 +1,8 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonContent, IonHeader, IonItem, IonList, IonMenu, IonMenuToggle, IonRouterOutlet, IonTitle, IonToolbar, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
+import './App.css';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -21,18 +22,64 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import './theme/colors.css';
+import Posts from './pages/Posts';
+import Bio from './pages/Bio';
+import Friends from './pages/Friends';
+import Photos from './pages/Photos';
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonRouterOutlet>
+    <IonMenu side="end" menuId="first" contentId="main">
+    <IonHeader>
+        <IonToolbar>
+            <IonTitle>Browse Media</IonTitle>
+        </IonToolbar>
+    </IonHeader>
+    <IonContent>
+        <IonList>
+            <IonMenuToggle>
+                <IonItem routerLink="/">My Profile</IonItem>
+            </IonMenuToggle>
+            <IonMenuToggle>
+                <IonItem routerLink="/profile/friends">Visit Friends</IonItem>
+            </IonMenuToggle>
+            <IonMenuToggle>
+                <IonItem routerLink="/profile/bio">Bio</IonItem>
+            </IonMenuToggle>
+
+            <IonMenuToggle>
+                <IonItem routerLink="/profile/posts">See Posts</IonItem>
+            </IonMenuToggle>
+
+            <IonMenuToggle>
+                <IonItem routerLink="/profile/photos">Photos</IonItem>
+            </IonMenuToggle>
+        </IonList>
+    </IonContent>
+</IonMenu>
+      <IonRouterOutlet id="main">
         <Route exact path="/home">
           <Home />
         </Route>
+        <Route exact path="/profile/bio">
+          <Bio />
+        </Route>
+        <Route path="/profile/friends">
+          <Friends />
+        </Route>
+        <Route exact path="/profile/posts">
+          <Posts />
+        </Route>
+        <Route exact path="/profile/photos">
+          <Photos />
+        </Route>
         <Route exact path="/">
-          <Redirect to="/home" />
+          <Redirect to="/profile" />
+          <Home />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

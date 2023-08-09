@@ -1,0 +1,17 @@
+:root {
+	--ion-color-magenta: #820b8a;
+	--ion-color-magenta-rgb: 130,11,138;
+	--ion-color-magenta-contrast: #ffffff;
+	--ion-color-magenta-contrast-rgb: 255,255,255;
+	--ion-color-magenta-shade: #720a79;
+	--ion-color-magenta-tint: #8f2396;
+}
+
+.ion-color-magenta {
+	--ion-color-base: var(--ion-color-magenta);
+	--ion-color-base-rgb: var(--ion-color-magenta-rgb);
+	--ion-color-contrast: var(--ion-color-magenta-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-magenta-contrast-rgb);
+	--ion-color-shade: var(--ion-color-magenta-shade);
+	--ion-color-tint: var(--ion-color-magenta-tint);
+}
